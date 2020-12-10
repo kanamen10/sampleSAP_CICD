@@ -1,23 +1,23 @@
 # Project Setup
 general:
-  pipeline: "sap-ui5-cf"
+  pipeline: "sap-cloud-sdk"
 
 # Stage enablement
 stages:
   testStage:
-    enable: false
+    enable: true
   malwareScanStage:
     enable: true
   deployStage:
     enable: true
   tmsStage:
-    enable: false
+    enable: true
 
 
 # Stage configuration
 steps:
   mtaBuild:
-    applicationName: "sampleSO" # optional
+    applicationName: "CICDsample" # optional
 
 # Stage enablement
 stages:
@@ -38,9 +38,9 @@ stages:
 steps:
   cloudFoundryDeploy:
     cloudFoundry:
-      apiEndpoint: "https://api.cf.jp10.hana.ondemand.com"
-      org: "Accenture_Japan_Ltd.___Akasaka_Intercity_lstokyo"
-      space: "LS_Tokyo"
+      apiEndpoint: "https://api.cf.us10.hana.ondemand.com"
+      org: "7cf42125trial"
+      space: "dev"
       credentialsId: "cf-ls-login"
       
 # # Stage enablement
