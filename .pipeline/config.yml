@@ -1,0 +1,55 @@
+# Project Setup
+general:
+  pipeline: "sap-ui5-cf"
+
+# Stage enablement
+stages:
+  testStage:
+    enable: false
+  malwareScanStage:
+    enable: true
+  deployStage:
+    enable: true
+  tmsStage:
+    enable: false
+
+
+# Stage configuration
+steps:
+  mtaBuild:
+    applicationName: "sampleSO" # optional
+
+# Stage enablement
+stages:
+  testStage:
+    enable: true
+
+# Stage enablement
+stages:
+  malwareScanStage:
+    enable: true
+    
+# Stage enablement
+stages:
+  deployStage:
+    enable: true
+
+# Stage configuration
+steps:
+  cloudFoundryDeploy:
+    cloudFoundry:
+      apiEndpoint: "https://api.cf.jp10.hana.ondemand.com"
+      org: "Accenture_Japan_Ltd.___Akasaka_Intercity_lstokyo"
+      space: "LS_Tokyo"
+      credentialsId: "cf-ls-login"
+      
+# # Stage enablement
+# stages:
+#   tmsStage:
+#     enable: true
+
+# # Stage configuration
+# steps:
+#   tmsUpload:
+#     nodeName: "qas-tms"
+#     credentialsId: "qas-tms-credential-info"
