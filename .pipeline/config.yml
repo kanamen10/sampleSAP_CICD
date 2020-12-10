@@ -43,13 +43,13 @@ steps:
       space: "dev"
       credentialsId: "cf-ls-login"
       
-# # Stage enablement
-# stages:
-#   tmsStage:
-#     enable: true
+# Stage enablement
+stages:
+  tmsStage:
+    enable: true
 
-# # Stage configuration
-# steps:
-#   tmsUpload:
-#     nodeName: "qas-tms"
-#     credentialsId: "qas-tms-credential-info"
+# Stage configuration
+steps:
+  tmsUpload:
+    nodeName: "qas-tms"
+    credentialsId: "qas-tms-credential-info"
