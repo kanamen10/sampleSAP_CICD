@@ -1,0 +1,1 @@
+sap.ui.define(["sap/ui/core/UIComponent","sap/ui/Device","com/CICDUI5/sample/CICDUI5/model/models"],function(e,t,i){"use strict";return e.extend("com.CICDUI5.sample.CICDUI5.Component",{metadata:{manifest:"json"},init:function(){e.prototype.init.apply(this,arguments);this.getRouter().initialize();this.setModel(i.createDeviceModel(),"device")}})});
