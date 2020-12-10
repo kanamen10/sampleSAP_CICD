@@ -1,0 +1,67 @@
+ID: CICDSample
+_schema-version: '2.1'
+parameters:
+  deploy_mode: html5-repo
+version: 0.0.1
+modules:
+  - name: cicdsample-approuter
+    type: approuter.nodejs
+    path: cicdsample-approuter
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+    requires:
+      - name: CICDSample_html5_repo_runtime
+      - name: uaa_CICDSample
+  - name: CICDSample_ui_deployer
+    type: com.sap.html5.application-content
+    path: CICDSample_ui_deployer
+    requires:
+      - name: CICDSample_html5_repo_host
+    build-parameters:
+      requires:
+        - name: CICDUI5
+          artifacts:
+            - './*'
+          target-path: resources/CICDUI5
+  - name: CICDJava
+    type: java
+    path: CICDJava
+    parameters:
+      memory: 1024M
+    provides:
+      - name: CICDJava_api
+        properties:
+          url: '${default-url}'
+  - name: CICDUI5
+    type: html5
+    path: CICDUI5
+    build-parameters:
+      builder: custom
+      commands:
+        - npm install
+        - npm run build
+      supported-platforms: []
+      build-result: dist
+resources:
+  - name: CICDSample_html5_repo_runtime
+    parameters:
+      service-plan: app-runtime
+      service: html5-apps-repo
+    type: org.cloudfoundry.managed-service
+  - name: CICDSample_html5_repo_host
+    parameters:
+      service-plan: app-host
+      service: html5-apps-repo
+    type: org.cloudfoundry.managed-service
+  - name: uaa_CICDSample
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
+    type: org.cloudfoundry.managed-service
+  - name: dest_CICDSample
+    parameters:
+      service-plan: lite
+      service: destination
+    type: org.cloudfoundry.managed-service
