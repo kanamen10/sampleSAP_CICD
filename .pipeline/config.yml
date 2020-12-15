@@ -2,7 +2,7 @@
 general:
   pipeline: "sap-cloud-sdk"
 
-# Stage enablement
+# Stage build and
 stages:
   testStage:
     enable: true
@@ -14,12 +14,10 @@ stages:
     enable: true
 
 
-# Stage configuration
+# Stage build
 steps:
   mtaBuild:
-    applicationName: "CICDsample" # optional
-
-# Stage enablement
+    applicationName: "CICDsample"
 stages:
   testStage:
     enable: true
@@ -34,7 +32,7 @@ stages:
   deployStage:
     enable: true
 
-# Stage configuration
+# Stage deploy
 steps:
   cloudFoundryDeploy:
     cloudFoundry:
@@ -43,13 +41,12 @@ steps:
       space: "dev"
       credentialsId: "cf-ls-login"
       
-# Stage enablement
+# Stage tms
 stages:
   tmsStage:
     enable: true
 
-# Stage configuration
 steps:
   tmsUpload:
-    nodeName: "dev-tms"
+    nodeName: "DEV_node"
     credentialsId: "dev-tms-service-key"
