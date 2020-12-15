@@ -32,14 +32,23 @@ stages:
   deployStage:
     enable: true
 
-# Stage deploy
-steps:
-  cloudFoundryDeploy:
-    cloudFoundry:
-      apiEndpoint: "https://api.cf.us10.hana.ondemand.com"
-      org: "7cf42125trial"
+stages:
+  productionDeployment:
+    cfTargets:
+    - org: "7cf42125trial"
       space: "dev"
+      appName: "sampleSAP_CICD"
+      apiEndpoint: "https://api.cf.us10.hana.ondemand.com"
       credentialsId: "cf-ls-login"
+
+# # Stage deploy
+# steps:
+#   cloudFoundryDeploy:
+#     cloudFoundry:
+#       apiEndpoint: "https://api.cf.us10.hana.ondemand.com"
+#       org: "7cf42125trial"
+#       space: "dev"
+#       credentialsId: "cf-ls-login"
       
 # Stage tms
 stages:
