@@ -52,4 +52,4 @@ stages:
 steps:
   tmsUpload:
     nodeName: "dev-tms"
-    credentialsId: "qas-tms-credential-info"
+    credentialsId: "dev-tms-service-key"
