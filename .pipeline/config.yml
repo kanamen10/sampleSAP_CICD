@@ -51,9 +51,9 @@ stages:
 #       credentialsId: "cf-ls-login"
       
 # Stage tms
-stages:
-  tmsStage:
-    enable: true
+# stages:
+#   tmsStage:
+#     enable: true
 
 steps:
   tmsUpload:
