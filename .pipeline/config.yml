@@ -37,7 +37,7 @@ stages:
     cfTargets:
     - org: "7cf42125trial"
       space: "dev"
-      appName: "sampleSAP_CICD"
+      appName: "sampleSAPCICD"
       apiEndpoint: "https://api.cf.us10.hana.ondemand.com"
       credentialsId: "cf-ls-login"
 
